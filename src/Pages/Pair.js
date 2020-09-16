@@ -1,7 +1,7 @@
 import React from "react";
 
 const Pair = (props) => {
-	return <div>This is pair</div>;
+	return <div></div>;
 };
 
 export default Pair;

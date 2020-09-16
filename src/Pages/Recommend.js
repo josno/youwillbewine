@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../Components/Button";
+import Wine from "../STORE";
 
 const Recommend = (props) => {
+	console.log(props);
 	const [name, setName] = useState("");
 	const [country, setCountry] = useState("");
 	const [color, setColor] = useState("");
@@ -18,6 +20,23 @@ const Recommend = (props) => {
 		}
 	};
 
+	const onCancel = () => {
+		props.history.goBack();
+	};
+
+	const onSubmit = () => {
+		const jsonObj = {
+			id: Wine.wines.length + 1,
+			name: name,
+			color: color,
+			country: country,
+			food_pairing: food,
+		};
+
+		localStorage.setItem("newInfo", JSON.stringify(jsonObj));
+		props.history.push("/wine");
+	};
+
 	return (
 		<WrapperStyles>
 			<h1 style={{ textAlign: "center" }}>
@@ -26,11 +45,19 @@ const Recommend = (props) => {
 			<FormStyles>
 				<label>
 					Wine Name
-					<input type='text' onChange={(e) => setName(e.target.value)} />
+					<input
+						type='text'
+						onChange={(e) => setName(e.target.value)}
+						required
+					/>
 				</label>
 				<label>
 					Country
-					<input type='text' onChange={(e) => setCountry(e.target.value)} />
+					<input
+						type='text'
+						onChange={(e) => setCountry(e.target.value)}
+						required
+					/>
 				</label>
 				<label>
 					Color
@@ -40,6 +67,7 @@ const Recommend = (props) => {
 							type='radio'
 							value='red'
 							onChange={(e) => setColor(e.target.value)}
+							required
 						/>
 						Red
 					</label>
@@ -49,6 +77,7 @@ const Recommend = (props) => {
 							type='radio'
 							value='white'
 							onChange={(e) => setColor(e.target.value)}
+							required
 						/>
 						White
 					</label>
@@ -64,11 +93,12 @@ const Recommend = (props) => {
 						style={{ height: "100px" }}
 						placeholder='Use commas to separate'
 						onChange={(e) => handleFoodChange(e)}
+						required
 					/>
 				</label>
 				<div className='button-container'>
-					<Button>Cancel</Button>
-					<Button>Submit</Button>
+					<Button handleClick={() => onCancel()}>Cancel</Button>
+					<Button handleClick={() => onSubmit()}>Submit</Button>
 				</div>
 			</FormStyles>
 		</WrapperStyles>
@@ -78,7 +108,6 @@ const Recommend = (props) => {
 const WrapperStyles = styled.div`
 	width: 100%;
 	height: 100%;
-	border: 1px solid black;
 `;
 
 const FormStyles = styled.form`

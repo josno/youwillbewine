@@ -29,9 +29,11 @@ const App = () => {
 				<Route exact path='/pair'>
 					<Pair />
 				</Route>
-				<Route exact path='/recommend'>
-					<Recommend />
-				</Route>
+				<Route
+					exact
+					path='/recommend'
+					render={(props) => <Recommend {...props} />}
+				/>
 			</Switch>
 			<Footer>Made By Joanne</Footer>
 		</>
