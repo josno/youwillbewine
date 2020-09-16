@@ -46,7 +46,7 @@ const HeaderStyle = styled.header`
 `;
 
 const H1Style = styled.h1`
-	font-size: 1.4em;
+	font-size: 2.4rem;
 	text-align: right;
 	padding: 10px;
 	margin: 0px;

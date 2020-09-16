@@ -8,7 +8,7 @@
 }
 
 main {
-	height: 100vh;
+	height: fit-content;
 }
 
 @media (prefers-reduced-motion: no-preference) {
