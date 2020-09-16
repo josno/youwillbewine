@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Wine from "./Pages/Wine";
+import Main from "./Pages/Main";
+import Pair from "./Pages/Pair";
+import Recommend from "./Pages/Recommend";
+
+const App = () => {
+	return (
+		<div>
+			<Switch>
+				<Route exact path='/'>
+					<Main />
+				</Route>
+				<Route exact path='/wine'>
+					<Wine />
+				</Route>
+				<Route exact path='/pair'>
+					<Pair />
+				</Route>
+				<Route exact path='/recommend'>
+					<Recommend />
+				</Route>
+			</Switch>
+		</div>
+	);
+};
 
 export default App;
