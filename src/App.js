@@ -54,7 +54,7 @@ const H1Style = styled.h1`
 
 const Bold = styled.span`
 	font-weight: bold;
-	color: red;
+	color: #ef5d60;
 `;
 
 const Footer = styled.footer`

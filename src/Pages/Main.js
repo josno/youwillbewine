@@ -11,28 +11,23 @@ const list = [
 const Main = (props) => {
 	return (
 		<MainStyles>
-			<ul style={{ padding: "0px" }}>
-				{list.map((item) => {
+			<ContainerStyles>
+				{list.map((item, index) => {
 					return (
-						<>
-							<LinkStyles>
-								<Link style={{ textDecoration: "none" }} to={`${item.link}`}>
-									<SpanStyles>{item.text}</SpanStyles>
-								</Link>
-							</LinkStyles>
-						</>
+						<LinkStyles key={index}>
+							<Link style={{ textDecoration: "none" }} to={`${item.link}`}>
+								<SpanStyles>{item.text}</SpanStyles>
+							</Link>
+						</LinkStyles>
 					);
 				})}
-			</ul>
+			</ContainerStyles>
 		</MainStyles>
 	);
 };
 
 const MainStyles = styled.main`
 	height: 100%;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
 `;
 
 const LinkStyles = styled.li`
@@ -51,13 +46,24 @@ const LinkStyles = styled.li`
 	text-align: center;
 	margin: 20px;
 	background-color: #a01a7d;
+	transition: all 0.2s ease-in-out;
 	:hover {
 		opacity: 70%;
+		cursor: pointer;
 	}
 `;
 
 const SpanStyles = styled.span`
 	text-decoration: none;
 	color: #ffffff;
+`;
+
+const ContainerStyles = styled.ul`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding-left: 0px;
 `;
 export default Main;
