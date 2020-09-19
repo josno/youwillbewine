@@ -26,11 +26,21 @@ const Main = (props) => {
 	);
 };
 
-const MainStyles = styled.main`
-	height: 100vh;
-`;
+const MainStyles = styled.main``;
 
 const LinkStyles = styled.li`
+	animation: show 3.5s;
+	@keyframes show {
+		0%,
+		50%,
+		75% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -45,7 +55,7 @@ const LinkStyles = styled.li`
 	box-shadow: -3px 3px pink;
 	text-align: center;
 	margin: 20px;
-	background-color: #a01a7d;
+	// background-color: #a01a7d;
 	transition: all 0.2s ease-in-out;
 	:hover {
 		opacity: 70%;
@@ -55,7 +65,7 @@ const LinkStyles = styled.li`
 
 const SpanStyles = styled.span`
 	text-decoration: none;
-	color: #ffffff;
+	color: #ef5d60;
 `;
 
 const ContainerStyles = styled.ul`

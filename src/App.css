@@ -15,11 +15,6 @@ background: -webkit-linear-gradient(360deg, hsla(272, 49%, 19%, 1) 0%, hsla(316,
 	pointer-events: none;
 }
 
-main {
-	height: fit-content;
-	background-size: 300px;
-}
-
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 		animation: App-logo-spin infinite 20s linear;
@@ -28,7 +23,6 @@ main {
 
 .App-header {
 	background-color: #282c34;
-	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
