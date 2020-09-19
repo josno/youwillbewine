@@ -27,7 +27,7 @@ const Main = (props) => {
 };
 
 const MainStyles = styled.main`
-	height: 100%;
+	height: 100vh;
 `;
 
 const LinkStyles = styled.li`

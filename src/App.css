@@ -1,6 +1,14 @@
 .App {
 	text-align: center;
 }
+/* 
+background: hsla(272, 49%, 19%, 1);
+
+background: linear-gradient(360deg, hsla(272, 49%, 19%, 1) 0%, hsla(316, 57%, 49%, 1) 51%, hsla(0, 0%, 100%, 1) 100%, hsla(316, 44%, 95%, 1) 100%);
+
+background: -moz-linear-gradient(360deg, hsla(272, 49%, 19%, 1) 0%, hsla(316, 57%, 49%, 1) 51%, hsla(0, 0%, 100%, 1) 100%, hsla(316, 44%, 95%, 1) 100%);
+
+background: -webkit-linear-gradient(360deg, hsla(272, 49%, 19%, 1) 0%, hsla(316, 57%, 49%, 1) 51%, hsla(0, 0%, 100%, 1) 100%, hsla(316, 44%, 95%, 1) 100%); */
 
 .App-logo {
 	height: 40vmin;
@@ -9,6 +17,7 @@
 
 main {
 	height: fit-content;
+	background-size: 300px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

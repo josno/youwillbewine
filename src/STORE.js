@@ -1,33 +1,32 @@
 export default {
 	wines: [
 		{
-			id: 1,
 			name: "Baia Tsitska-Tsolikouri-Krakhuna",
 			color: "white",
 			country: "Georgia",
 			food_pairing: ["tacos"],
-			image: "./",
+			image: "url",
 		},
 		{
-			id: 2,
 			name: "Cellar Door Granache",
 			color: "red",
 			country: "USA",
-			food_pairing: ["corndogs"],
+            food_pairing: ["corndogs"],
+            image: "url"
 		},
 		{
-			id: 3,
 			name: "Cinzano Prosecco",
 			color: "white",
 			country: "USA",
-			food_pairing: ["thai food", "tacos"],
+            food_pairing: ["thai food", "tacos"],
+            image: "url"
 		},
 		{
-			id: 3,
 			name: "Cinzano Prosecco",
 			color: "white",
 			country: "USA",
-			food_pairing: ["thai food", "tacos"],
+            food_pairing: ["thai food", "tacos"],
+            image: "url"
 		},
 	],
 	food_pairing: [
