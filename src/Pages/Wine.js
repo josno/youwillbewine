@@ -1,17 +1,32 @@
-import React from "react";
-import data from "../STORE.js";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Bottle from "../assets/winebottle.svg";
-
-const wines = data.wines;
+import WineApiService from "../services/wine-service";
 
 const Wine = (props) => {
+	const [wines, setWines] = useState([]);
+	const [error, setError] = useState("");
+
+	const getWines = async () => {
+		let status;
+		try {
+			const res = await WineApiService.getWines();
+			status = res.status;
+			setWines([...res]);
+		} catch (err) {
+			setError(`Something went wrong ${status}`);
+		}
+	};
+
+	useEffect(() => {
+		getWines();
+	}, []);
+
 	return (
 		<WineStyles>
 			<WineContainerStyles>
-				{wines.map((item) => {
+				{wines.map((item, index) => {
 					return (
-						<WineItem key={item.id}>
+						<WineItem key={index}>
 							<h2>
 								<Bold>Label Name:</Bold> {item.name}
 							</h2>

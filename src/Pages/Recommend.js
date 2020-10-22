@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../Components/Button";
-import Wine from "../STORE";
+import WineApiService from "../services/wine-service";
 
 const Recommend = (props) => {
-	console.log(props);
 	const [name, setName] = useState("");
 	const [country, setCountry] = useState("");
 	const [color, setColor] = useState("");
@@ -24,16 +23,16 @@ const Recommend = (props) => {
 		props.history.goBack();
 	};
 
-	const onSubmit = () => {
+	const onSubmit = async () => {
 		const jsonObj = {
-			id: Wine.wines.length + 1,
 			name: name,
 			color: color,
 			country: country,
-			food_pairing: food,
+			food_pairings: food,
 		};
 
-		localStorage.setItem("newInfo", JSON.stringify(jsonObj));
+		const addedWine = await WineApiService.addWine(jsonObj);
+
 		props.history.push("/wine");
 	};
 
@@ -46,7 +45,7 @@ const Recommend = (props) => {
 				<label>
 					Wine Name
 					<input
-						type='text'
+						type="text"
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
@@ -54,28 +53,28 @@ const Recommend = (props) => {
 				<label>
 					Country
 					<input
-						type='text'
+						type="text"
 						onChange={(e) => setCountry(e.target.value)}
 						required
 					/>
 				</label>
 				<label>
 					Color
-					<label className='checkbox'>
+					<label className="checkbox">
 						<input
-							name='Red'
-							type='radio'
-							value='red'
+							name="Red"
+							type="radio"
+							value="red"
 							onChange={(e) => setColor(e.target.value)}
 							required
 						/>
 						Red
 					</label>
-					<label className='checkbox'>
+					<label className="checkbox">
 						<input
-							name='Red'
-							type='radio'
-							value='white'
+							name="Red"
+							type="radio"
+							value="white"
 							onChange={(e) => setColor(e.target.value)}
 							required
 						/>
@@ -88,15 +87,15 @@ const Recommend = (props) => {
 				<label>
 					Make a list of things on what you found it pairs well with.
 					<textarea
-						className='input-style'
-						type='text'
+						className="input-style"
+						type="text"
 						style={{ height: "100px" }}
-						placeholder='Use commas to separate'
+						placeholder="Use commas to separate"
 						onChange={(e) => handleFoodChange(e)}
 						required
 					/>
 				</label>
-				<div className='button-container'>
+				<div className="button-container">
 					<Button handleClick={() => onCancel()}>Cancel</Button>
 					<Button handleClick={() => onSubmit()}>Submit</Button>
 				</div>

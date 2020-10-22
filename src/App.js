@@ -18,28 +18,28 @@ const App = () => {
 					<H1Style>
 						You'll be fine!
 						<br />
-						<Bold>Drink some wine.</Bold>
+						<Bold>Drin k some wine.</Bold>
 					</H1Style>
 				</HeaderStyle>
 			)}
 
-			<SplashBannerStyles>
+			{/* <SplashBannerStyles>
 				<SplashText>Drink some wine.</SplashText>
-			</SplashBannerStyles>
+			</SplashBannerStyles> */}
 
 			<Switch>
-				<Route exact path='/'>
+				<Route exact path="/">
 					<Main />
 				</Route>
-				<Route exact path='/wine'>
+				<Route exact path="/wine">
 					<Wine />
 				</Route>
-				<Route exact path='/pair'>
+				<Route exact path="/pair">
 					<Pair />
 				</Route>
 				<Route
 					exact
-					path='/recommend'
+					path="/recommend"
 					render={(props) => <Recommend {...props} />}
 				/>
 			</Switch>
