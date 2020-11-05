@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled from "styled-components";
-
+import Navigation from "./Components/Navigation";
 import Wine from "./Pages/Wine";
 import Main from "./Pages/Main";
 import Pair from "./Pages/Pair";
@@ -12,39 +12,33 @@ import "./App.css";
 const App = () => {
 	const [headerOn, setHeaderOn] = useState(false);
 	return (
-		<main>
-			{headerOn && (
-				<HeaderStyle>
-					<H1Style>
-						You'll be fine!
-						<br />
-						<Bold>Drin k some wine.</Bold>
-					</H1Style>
-				</HeaderStyle>
-			)}
+		<>
+			<Navigation />
 
-			{/* <SplashBannerStyles>
+			<main>
+				{/* <SplashBannerStyles>
 				<SplashText>Drink some wine.</SplashText>
 			</SplashBannerStyles> */}
 
-			<Switch>
-				<Route exact path="/">
-					<Main />
-				</Route>
-				<Route exact path="/wine">
-					<Wine />
-				</Route>
-				<Route exact path="/pair">
-					<Pair />
-				</Route>
-				<Route
-					exact
-					path="/recommend"
-					render={(props) => <Recommend {...props} />}
-				/>
-			</Switch>
-			<Footer>Made By Joanne</Footer>
-		</main>
+				<Switch>
+					<Route exact path="/">
+						<Main />
+					</Route>
+					<Route exact path="/wine">
+						<Wine />
+					</Route>
+					<Route exact path="/pair">
+						<Pair />
+					</Route>
+					<Route
+						exact
+						path="/recommend"
+						render={(props) => <Recommend {...props} />}
+					/>
+				</Switch>
+				<Footer>Made By Joanne</Footer>
+			</main>
+		</>
 	);
 };
 
