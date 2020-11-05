@@ -8,28 +8,28 @@ const Navigation = () => {
 	return (
 		<NavStyles>
 			<h1>You'll Be Wine</h1>
-			<button class="button" onClick={() => setMenuOpen(!isMenuOpen)}>
+			<button className="button" onClick={() => setMenuOpen(!isMenuOpen)}>
 				<div
-					class={`button__line ${
+					className={`button__line ${
 						isMenuOpen ? "button__line--top--active" : "button__line--top"
 					}`}
 				></div>
 				<div
-					class={`button__line ${
+					className={`button__line ${
 						isMenuOpen ? "button__line--middle--active" : "button__line--middle"
 					}`}
 				></div>
 				<div
-					class={`button__line ${
+					className={`button__line ${
 						isMenuOpen ? "button__line--bottom--active" : "button__line--bottom"
 					}`}
 				></div>
 			</button>
-			<ul class={isMenuOpen ? `menu--active` : `menu--hidden`}>
-				<li class={`menu__list-item`}>Drink</li>
-				<li class={`menu__list-item`}>Eat</li>
-				<li class={`menu__list-item`}>Recommend</li>
-				<li class={`menu__list-item`}>Login/Logout</li>
+			<ul className={isMenuOpen ? `menu--active` : `menu--hidden`}>
+				<li className={`menu__list-item`}>Drink</li>
+				<li className={`menu__list-item`}>Eat</li>
+				<li className={`menu__list-item`}>Recommend</li>
+				<li className={`menu__list-item`}>Login/Logout</li>
 			</ul>
 		</NavStyles>
 	);
