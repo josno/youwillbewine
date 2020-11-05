@@ -31,7 +31,7 @@ const Recommend = (props) => {
 			food_pairings: food,
 		};
 
-		const addedWine = await WineApiService.addWine(jsonObj);
+		await WineApiService.addWine(jsonObj);
 
 		props.history.push("/wine");
 	};
