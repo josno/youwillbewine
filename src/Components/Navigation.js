@@ -7,7 +7,7 @@ const Navigation = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
 	return (
 		<NavStyles>
-			<h1>You'll Be Fine - Have Some Wine</h1>
+			<h1>You'll Be Wine</h1>
 			<button class="button" onClick={() => setMenuOpen(!isMenuOpen)}>
 				<div
 					class={`button__line ${
@@ -25,12 +25,12 @@ const Navigation = () => {
 					}`}
 				></div>
 			</button>
-			{/* <ul>
-				<li>Drink</li>
-				<li>Eat</li>
-				<li>Recommend</li>
-				<li>Login/Logout</li>
-			</ul> */}
+			<ul class={isMenuOpen ? `menu--active` : `menu--hidden`}>
+				<li class={`menu__list-item`}>Drink</li>
+				<li class={`menu__list-item`}>Eat</li>
+				<li class={`menu__list-item`}>Recommend</li>
+				<li class={`menu__list-item`}>Login/Logout</li>
+			</ul>
 		</NavStyles>
 	);
 };
@@ -43,10 +43,14 @@ const NavStyles = styled.nav`
 	justify-content: space-between;
 	padding: 0px 1rem;
 	background-color: #311847;
+	color: #e09f7d;
 
 	h1 {
-		display: none;
+		color: inherit;
+		font-size: 2rem;
+		font-weight: 800;
 	}
+
 	.button {
 		display: flex;
 		flex-direction: column;
@@ -64,6 +68,7 @@ const NavStyles = styled.nav`
 		border: 2px solid #e09f7d;
 		width: 80%;
 		transition: all 0.2s ease-in-out;
+		background-color: #e09f7d;
 	}
 
 	.button__line--top--active {
@@ -78,10 +83,47 @@ const NavStyles = styled.nav`
 		transform: translate(0px, -9px) rotate(-45deg);
 	}
 
-	// font-size: 2rem;
-	// font-weight: 800;
+	.menu--hidden {
+		display: none;
+		transition: all 0.2s ease-in-out;
+	}
 
-	// color: #e09f7d;
+	.menu--active {
+		list-style: none;
+		position: absolute;
+		width: 100%;
+		left: 0%;
+		top: 4rem;
+		text-align: center;
+		margin: 0px;
+		padding: 2rem 3rem;
+		background-color: #311847;
+		color: #e09f7d;
+		z-index: 99;
+		animation: fadeIn 0.2s ease-in-out;
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.menu__list-item {
+		margin: 20px;
+		color: inherit;
+		font-size: 1.4rem;
+		color: inherit;
+	}
+
+	@media (min-width: 768px) {
+		.button {
+			display: none;
+		}
+	}
 
 	// ul {
 	// 	display: flex;
